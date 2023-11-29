@@ -3,11 +3,21 @@ import { SliceCreator } from "../types/creator.type";
 
 export const createAuthSlice: SliceCreator<AuthSlice> = (set, get) => ({
   isAuthenticaded: false,
+  user: {
+    email: "",
+    role: "",
+    permissions: []
+  },
 
-  signIn: async () => {
-    set({ isAuthenticaded: true });
-
-    get().updateAppVersion("2.1");
+  signIn: () => {
+    set({
+      isAuthenticaded: true,
+      user: {
+        email: "luis.resendiz@gmail.com",
+        role: "admin",
+        permissions: ["stores.create", "stores.update", "stores.delete"]
+      }
+    });
   },
 
   signOut: () => {
