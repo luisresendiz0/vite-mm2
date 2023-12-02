@@ -1,7 +1,5 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom";
 import StoresRoute from "../features/stores/route/StoresRoute";
-import CreateStore from "../features/stores/components/CreateStore";
-import UpdateStore from "../features/stores/components/UpdateStore";
 import SignInRoute from "../features/signIn/route/SignInRoute";
 import SingUpRoute from "../features/signUp/route/SignUpRoute";
 import PrivateRoute from "../features/app/routes/PrivateRoute";
@@ -11,20 +9,20 @@ import HomeRoute from "../features/app/components/HomeRoute";
 
 const router = createBrowserRouter([
   {
-    path: '/signin',
-    element: <SignInRoute />
+    path: "/signin",
+    element: <SignInRoute />,
   },
   {
-    path: '/signup',
-    element: <SingUpRoute />
+    path: "/signup",
+    element: <SingUpRoute />,
   },
   {
-    path: '/app',
+    path: "/app",
     element: <PrivateRoute />,
     children: [
       {
         path: "",
-        element: <HomeRoute />
+        element: <HomeRoute />,
       },
       {
         path: "stores",
@@ -32,29 +30,20 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
-            element: <StoresList />
+            element: <StoresList />,
           },
-          {
-            path: "create",
-            element: <CreateStore />
-          },
-          {
-            path: "update",
-            element: <UpdateStore />
-          }
-        ]
-      }
-    ]
+        ],
+      },
+    ],
   },
   {
     path: "/unauthorized",
-    element: <p>403 - Unauthorized</p>
+    element: <p>403 - Unauthorized</p>,
   },
   {
     path: "/*",
-    element: <NotFoundRoute />
-  }
+    element: <NotFoundRoute />,
+  },
 ]);
-
 
 export default router;

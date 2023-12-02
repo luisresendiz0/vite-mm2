@@ -1,12 +1,12 @@
-import axios from "axios"
+import axios from "axios";
 
-export const updateStore = async () => {
+export const updateStore = async (data: any) => {
   try {
-    const baseURL = import.meta.env.BASE_URL;
-    const url = `${baseURL}/Store`;
-    const response = await axios.put(url);
+    const baseURL = import.meta.env.VITE_BASE_URL;
+    const url = `${baseURL}/Store/${data.storeId}`;
+    const response = await axios.put(url, data);
     return response.data;
   } catch (error) {
     console.log("error", error);
   }
-}
+};
